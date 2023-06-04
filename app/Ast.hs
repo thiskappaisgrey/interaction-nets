@@ -1,12 +1,15 @@
 module Ast where
 import Data.Text (Text)
 
+-- TODO add lens .. and use it
+
+
 data Agent = Agent {
   aid :: Text,
   oport :: Maybe Term,
   port ::  [Term]
   }  deriving Show
-data Name = Name Text  deriving Show
+newtype Name = Name Text  deriving Show
 
 -- instance Show Name where
 --   show (Name a) = a
@@ -44,6 +47,8 @@ data Expr =
   ATerm Term
   | ACon Connection
   | ARule InteractionRule deriving Show
+
+type Ast = [Expr] -- an Ast is a list of expressions
 -- instance Show InteractionRule where
 --   show (IRule r1 r2 c) =
 --     show r1 <> "><" <> show r2 <> "=>" <> showC c

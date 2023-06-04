@@ -1,7 +1,4 @@
 module Main where
--- import Data.Vector
--- import Data.Maybe (fromMaybe)
-
 import Repl
   
 -- -- basic interaction net (using the models paper)
@@ -16,3 +13,5 @@ main :: IO ()
 main = runRepl
   -- print s
   -- putStrLn "done"
+
+

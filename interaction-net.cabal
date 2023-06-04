@@ -67,6 +67,9 @@ executable interaction-net
       , Repl
       , Interpret
       , Database
+      , Effects.Repl
+      , Effects.Fail
+      , Effects.Database
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:

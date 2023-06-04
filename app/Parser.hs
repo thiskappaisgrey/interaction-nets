@@ -23,7 +23,7 @@ symbol = L.symbol sc
 lexeme :: Parser a -> Parser a
 lexeme = L.lexeme sc
 
-
+parens :: Parser a -> Parser a
 parens    = between (symbol "(") (symbol ")")
 
 parseName :: Parser Name
@@ -66,9 +66,9 @@ parseConnection = do
 parseIRule :: Parser InteractionRule
 parseIRule = do
   a1 <- lexeme parseAgent
-  symbol "><"
+  _ <- symbol "><"
   a2 <- lexeme parseAgent
-  symbol "=>"
+  _ <- symbol "=>"
   cs <- parseConnection `sepBy1` (symbol ",")
   -- symbol ";" - add semis later
   return (IRule a1 a2 cs)
